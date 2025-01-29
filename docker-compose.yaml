@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Main AstroBot service
+  astrobot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: astrobot:${TAG:-latest}
+    container_name: astrobot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - astrobot-net
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  # Database service (if needed)
+  db:
+    image: postgres:15-alpine
+    container_name: astrobot-db
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - astrobot-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # Redis for caching and message queue (if needed)
+  redis:
+    image: redis:7-alpine
+    container_name: astrobot-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - astrobot-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+
+networks:
+  astrobot-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+
+# Development overrides can be placed in docker-compose.override.yml
+# Production settings can be modified through environment variables 

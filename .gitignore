@@ -24,7 +24,13 @@ wheels/
 venv/
 env/
 ENV/
+
+# Environment Files
 .env
+.env.*
+!.env.template
+.env.local
+.env.*.local
 
 # IDE
 .idea/
@@ -61,8 +67,5 @@ backtest_results/
 Thumbs.db
 
 # Sensitive Data
-*.env
-.env.*
-!.env.example
 secrets/
 api_keys.txt
