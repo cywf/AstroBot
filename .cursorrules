@@ -1,0 +1,109 @@
+# PROJECT OVERVIEW
+AstroBot is an open-source algorithmic trading bot designed to explore diverse markets, automate trading strategies, and adapt to future advancements in trading technology. The project emphasizes scalability, modularity, and collaboration, with a focus on leveraging containerized environments and CI/CD pipelines.
+
+---
+
+# PERSONALITY
+AstroBot represents innovation, adaptability, and community-driven collaboration. It is built with the principles of transparency and scalability, aiming to provide developers with a powerful yet accessible tool to learn and build upon in algorithmic trading.
+
+---
+
+# TECH STACK
+1. **Frontend Tech Stack (UI/UX)**:
+   - HTML, CSS, JavaScript (for potential UI dashboards)
+   - Frameworks: React or Vue.js (optional for future visualization tools)
+
+2. **Backend Tech Stack**:
+   - Python: Core logic for trading algorithms and data handling
+   - Flask or FastAPI: For potential API services
+
+3. **Infrastructure**:
+   - Docker: For containerized development and testing
+   - GitHub Actions: For CI/CD pipelines
+
+4. **Data Handling**:
+   - Pandas, NumPy: For data analysis and manipulation
+   - SQLite/PostgreSQL: For lightweight data storage (if needed)
+
+5. **Version Control Integration**:
+   - Git with GitHub repositories and automated workflows
+
+---
+
+# ERROR FIXING PROCESS
+1. Identify the issue through logs or debugging tools.
+2. Test the bug in an isolated container to replicate the issue.
+3. Apply fixes incrementally while writing detailed comments.
+4. Run automated tests via CI pipelines to ensure stability.
+5. Log all fixes in the `CHANGELOG.md` file.
+
+---
+
+# BUILDING PROCESS
+1. Clone the repository and ensure Docker is running.
+2. Build the containerized environment:
+
+```bash
+docker build -t astro-bot .
+```
+4. Open the project in Cursor IDE for development and testing.
+
+---
+
+## Our .env variables
+• `API_KEY`: Used for accessing third-party APIs (e.g., trading platforms)
+• `DATABASE_URL`: Database connection string for storing trading data
+• `SECRET_KEY`: Secure key for encrypting sensitive information
+
+Ensure to:
+• Create a .cursorignore file to exclude .env files from uploads.
+• Do not expose sensitive data in the repository.
+
+---
+
+## CURRENT FILE STRUCTURE
+
+```
+
+```
+
+---
+
+## GITHUB PUSH PROCESS
+
+1.	Stage changes:
+```bash
+git add .
+```
+
+2. Commit changes with a descriptive message:
+```bash
+git commit -m "Add SMA strategy and tests"
+```
+3. Push to the repository:
+```bash
+git push origin main
+```
+
+---
+
+## IMPORTANT
+1. Always use comments in your code for clarity.
+2. Regularly pull changes from the remote repository to stay updated:
+```bash
+git pull origin main
+```
+
+3. Validate every change through automated tests before merging.
+
+---
+
+## OTHER CONTEXT
+
+AstroBot aims to teach and empower developers to build innovative trading strategies. The repository is open-source under the MIT License, promoting transparency and collaboration.
+
+---
+
+## COMMENTS
+• Include meaningful comments to explain all key functions and processes.
+• Avoid removing comments unless they are irrelevant or outdated.
