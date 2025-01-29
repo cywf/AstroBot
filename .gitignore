@@ -28,7 +28,7 @@ ENV/
 # Environment Files
 .env
 .env.*
-!.env.template
+#!.env.template
 .env.local
 .env.*.local
 
